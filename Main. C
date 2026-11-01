@@ -1,25 +1,50 @@
-#include<stdio.h>
+
+#include <stdio.h>
 int main() {
-int marks[3][3];
-int i, j;
-int total, avg, passed;
-for( i=0;i<3;i++){
-for(j=0;j<3;j++){
-scanf("%d",&marks[i][j]);
+    int marks[3][3];
+    int i, j;
+    int total, passed;
+    float avg;
+
+    // Input marks
+    for (i = 0; i < 3; i++) {
+        printf("\nEnter marks for Student %d:\n", i + 1);
+
+        for (j = 0; j < 3; j++) {
+            do {
+                printf("Subject %d (0-100): ", j + 1);
+                scanf("%d", &marks[i][j]);
+
+                if (marks[i][j] < 0 || marks[i][j] > 100) {
+                    printf("Invalid marks! Try again.\n");
+                }
+            } while (marks[i][j] < 0 || marks[i][j] > 100);
+        }
+    }
+
+    // Display results
+    printf("\n--- STUDENT RESULTS ---\n");
+    printf("Student\tTotal\tAverage\tResult\n");
+
+    for (i = 0; i < 3; i++) {
+        total = 0;
+        passed = 1;
+
+        for (j = 0; j < 3; j++) {
+            total += marks[i][j];
+
+            if (marks[i][j] < 35) {
+                passed = 0;
+            }
+        }
+
+        avg = total / 3.0;
+
+        printf("%d\t%d\t%.2f\t%s\n",
+               i + 1, total, avg,
+               passed ? "Passed" : "Failed");
+    }
+
+    return 0;
 }
-} 
-for(i=0;i<3;i++){
-total=0;
-passed=1;
-for(j=0;j<3;j++){
-total+=marks[i][j];
-if(marks[i][j]<35){
-passed=0;
-}
-}
-}
-avg=total/float(3);
-printf("%d\t%d\t%.2f\t%s\n",i+1,total,avg, passed? "Passed":" Failed") ;
-}
-return 0;
-}
+
