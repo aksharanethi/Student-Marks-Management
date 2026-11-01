@@ -23,28 +23,32 @@ int main() {
     }
 
     // Display results
-    printf("\n--- STUDENT RESULTS ---\n");
-    printf("Student\tSubject1\tSubject2\tSubject3\tTotal\tAverage\tResult\n");
+    
+printf("\n--- STUDENT RESULTS ---\n");
 
-    for (i = 0; i < 3; i++) {
-        total = 0;
-        passed = 1;
+printf("%-8s %-10s %-10s %-10s %-8s %-8s %-8s\n",
+       "Student", "Subject1", "Subject2", "Subject3",
+       "Total", "Average", "Result");
 
-        for (j = 0; j < 3; j++) {
-            total += marks[i][j];
+for (i = 0; i < 3; i++) {
+    total = 0;
+    passed = 1;
 
-            if (marks[i][j] < 35) {
-                passed = 0;
-            }
+    for (j = 0; j < 3; j++) {
+        total += marks[i][j];
+
+        if (marks[i][j] < 35) {
+            passed = 0;
         }
-
-        avg = total / 3.0;
-
-        printf("%d\t%d\t%d\t%d\t%d\t%.2f\t%s\n",
-               i + 1,marks[i][0], marks[i][1], marks[i][2], total, avg,
-               passed ? "Passed" : "Failed");
     }
 
-    return 0;
+    avg = total / 3.0;
+
+    printf("%-8d %-10d %-10d %-10d %-8d %-8.2f %-8s\n",
+           i + 1, marks[i][0], marks[i][1], marks[i][2],
+           total, avg, passed ? "Passed" : "Failed");
 }
+return 0;
+}
+ 
 
