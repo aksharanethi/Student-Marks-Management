@@ -24,7 +24,7 @@ int main() {
 
     // Display results
     printf("\n--- STUDENT RESULTS ---\n");
-    printf("Student\tTotal\tAverage\tResult\n");
+    printf("Student\tSubject1\tSubject2\tSubject3\tTotal\tAverage\tResult\n");
 
     for (i = 0; i < 3; i++) {
         total = 0;
@@ -40,8 +40,8 @@ int main() {
 
         avg = total / 3.0;
 
-        printf("%d\t%d\t%.2f\t%s\n",
-               i + 1, total, avg,
+        printf("%d\t%d\t%d\t%d\t%d\t%.2f\t%s\n",
+               i + 1,marks[i][0], marks[i][1], marks[i][2], total, avg,
                passed ? "Passed" : "Failed");
     }
 
