@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main() {
+int marks[3][3];
+int i, j;
+int total, avg, passed;
+for( i=0;i<3;i++){
+for(j=0;j<3;j++){
+scanf("%d",&marks[i][j]);
+}
+} 
+for(i=0;i<3;i++){
+total=0;
+passed=1;
+for(j=0;j<3;j++){
+total+=marks[i][j];
+if(marks[i][j]<35){
+passed=0;
+}
+}
+}
+avg=total/float(3);
+printf("%d\t%d\t%.2f\t%s\n",i+1,total,avg, passed? "Passed":" Failed") ;
+}
+return 0;
+}
